@@ -32,14 +32,25 @@ RUN mkdir -p /catkin_ws/src
 # Clone or copy over your source code
 
 # Copying
-# COPY ./your_package /catkin_ws/src/
+#COPY ./disp_ext /catkin_ws/src/
 
-# Cloning
+# Cloning & Replace disp_ext.py with my local copy (subverts f1tenth_gym_ros error, while allowing me to locally change code)
+# RUN cd /catkin_ws/src/ && rm -rf disp_ext
 # RUN cd /catkin_ws/src/ && \
-#     git clone https://github.com/your_user/your_repo.git
+#     git clone https://github.com/FT-Autonomous/disp_ext.git && cd disp_ext/scripts && rm -rf disp_ext.py
+# COPY ./disp_ext/scripts/disp_ext.py /catkin_ws/src/disp_ext/scripts
+
+
+#Removes git cache, redownloads repo & adds permission to .py file
+RUN cd /catkin_ws/src/ && rm -rf disp_ext
+RUN cd /catkin_ws/src/ && \
+   git clone https://github.com/FT-Autonomous/disp_ext.git && cd disp_ext/scripts && chmod +x #disp_ext.py
 
 # Building your ROS packages
 RUN /bin/bash -c "source /opt/ros/melodic/setup.bash; cd catkin_ws; catkin_make; source devel/setup.bash"
 
+# Uncomment set the shell to bash to provide the "source" command
+SHELL ["/bin/bash", "-c"] 
+
 # Setting entry point command that runs when the container is brought up
-# CMD source /catkin_ws/devel/setup.bash; roslaunch --wait your_package your_launch.launch
+CMD source /catkin_ws/devel/setup.bash; roslaunch --wait disp_ext disp_ext.launch
