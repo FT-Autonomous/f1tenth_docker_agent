@@ -15,7 +15,7 @@ services:
       # Scenario: 0 for single car timed trial (qualifying), 1 for dual car racing (grand prix)
       - RACE_SCENARIO=0
       # ids for agents: EGO_ID is for YOUR agents in both qualifying AND grand prix. You'll need to assign your team's agent id to this when you submit.
-      - EGO_ID=ego_id
+      - EGO_ID=R2DU
       # OPP_ID is ONLY for auto evaluation purposes, you DO NOT need to use the opp_id in your code
       - OPP_ID=opp_id
       # map parameters, RACE_MAP_PATH for the corresponding yaml path, RACE_MAP_IMG_EXT is the extension of the image file in ROS convention, i.e. assuming the image file and the yaml file are in the same directory and has the same filename except for the file extension
