@@ -33,13 +33,13 @@ RUN mkdir -p /catkin_ws/src
 # Clone or copy over your source code
 
 # Copying
-#COPY ./disp_ext /catkin_ws/src/
+COPY ./disp_ext /catkin_ws/src/disp_ext
 
 # Cloning
-RUN rm -rf /catkin_ws/src/disp_ext
-RUN cd /catkin_ws/src/ && git clone https://github.com/FT-Autonomous/disp_ext.git
-RUN rm -rf /catkin_ws/src/disp_ext/scripts/disp_ext.py 
-COPY ./disp_ext.py /catkin_ws/src/disp_ext/scripts
+#RUN rm -rf /catkin_ws/src/disp_ext
+#RUN cd /catkin_ws/src/ && git clone https://github.com/FT-Autonomous/disp_ext.git
+#RUN rm -rf /catkin_ws/src/disp_ext/scripts/disp_ext.py 
+#COPY ./disp_ext.py /catkin_ws/src/disp_ext/scripts
 #RUN rm -rf /catkin_ws/src/disp_ext/launch/disp_ext.launch
 #COPY ./disp_ext/launch/disp_ext.launch /catkin_ws/src/disp_ext/launch
 
